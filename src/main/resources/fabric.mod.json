@@ -1,0 +1,51 @@
+{
+	"schemaVersion": 1,
+	"id": "uwu-mod",
+	"version": "${version}",
+	"name": "uwu mod",
+	"description": "Macht alles UwU: Chat-Nachrichten und Herz-Partikel an Ambossen.",
+	"authors": [
+		"Hugo (Vibecoded)"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/uwu-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.example.UwuMod",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.example.client.UwuModClient",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "com.example.client.UwuModDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"uwu-mod.mixins.json",
+		{
+			"config": "uwu-mod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
